@@ -17,7 +17,7 @@ class List {
         void insertAt(int /*position*/, int /*newElement*/);
         void deleteAt(int /*position*/);
         
-    private:
+    protected:
         int mSize;
         int mCapacity;
         int *mArray;

@@ -15,7 +15,6 @@ list-compile:
 	$(CXX) $(CXXFLAGS) -c list.cpp -o list.o
 
 list-compile-tests:
-
 	$(info Compiling list tests...)	
 	$(CXXTEST) $(CXXTESTFLAGS) -o runner.cpp test_list.h
 	$(CXX) -std=c++11 -c runner.cpp  -o a.o
@@ -25,11 +24,21 @@ list-run-tests:
 	$(info Running list tests...)
 	./runner.out
 
+stack-all: stack-compile stack-compile-tests stack-run-tests
 
-
-stack:
+stack-compile: list-compile
 	$(info Compiling stack ...)
 	$(CXX) $(CXXFLAGS) -c stack.cpp -o stack.o 
+
+stack-compile-tests:
+	$(info Compiling stack tests...)	
+	$(CXXTEST) $(CXXTESTFLAGS) -o runner.cpp test_stack.h
+	$(CXX) -std=c++11 -c runner.cpp  -o a.o
+	$(CXX) runner.cpp -o runner.out list.o stack.o
+
+stack-run-tests:
+	$(info Running stack tests...)
+	./runner.out
 
 test-all:
 	$(info Compiling all tests...)

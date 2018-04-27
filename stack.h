@@ -1,30 +1,20 @@
-#ifndef SSTACK_H
-#define SSTACK_H
+#ifndef STACK_H
+#define STACK_H
 
+#include "list.h"
 #include <iostream>
 
-const int DEFAULT_CAPACITY = 100;
-
-class Stack {
+class Stack : public List {
 
     public:
         Stack();
-        Stack(int /*size*/);
-        ~Stack();
+        Stack(int /*capacity*/);
 
-        bool isEmpty() const;
-        int size() const;
-        int getCapacity() const;
-        int at(int /*position*/) const;
-        void push(int /*element*/);
-        int pull();
+        void push_back(int /*new element*/);
+        int pull_back();
 
-        
     private:
-        int mSize;
-        int mCapacity;
-        int *mArray; 
-
+        
 };
 
 #endif

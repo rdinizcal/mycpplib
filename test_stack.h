@@ -1,115 +1,57 @@
+#ifndef TEST_STACK_H
+#define TEST_STACK_H
+
 #include <cxxtest/TestSuite.h>
 #include "stack.h"
 
 class StackTestSuite : public CxxTest::TestSuite {
     public:
 
-        void testDefaultConstructor(void) {
-
-            Stack stack = Stack();
-
-            TS_ASSERT(&stack != 0);
-        }
-
-        void testConstructor(void) {
-
-            Stack stack = Stack(10);
-
-            TS_ASSERT(&stack != 0);
-        }
-
-        void testEmptyStack(void) {
-            
-            Stack stack = Stack(10);
-            
-            TS_ASSERT(stack.isEmpty() == true);
-        }
-
-        void testStackSize(void) {
-            
-            Stack stack10 = Stack(10);
-            TS_ASSERT(stack10.size() == 0);
-        }
-
-        void testStackCapacity(void) {
-
-            Stack stack1  = Stack(10);
-            TS_ASSERT(stack1.getCapacity() == 10);
-        }
-
-        void testStackPush(void) {
-
-            Stack stack = Stack();
-
-            stack.push(5);
-            TS_ASSERT_EQUALS(stack.size(), 1);
-            TS_ASSERT(stack.at(0) == 5);
-
-            stack.push(-1);
-            TS_ASSERT(stack.size() == 2);
-            TS_ASSERT(stack.at(0) == 5);
-            TS_ASSERT(stack.at(1) == -1);
-        }
-
-        void testStackOverflow(void) {
-
+        void testPushBack() {
             Stack stack = Stack(3);
 
-            stack.push(1);
-            stack.push(2);
-            stack.push(3);
-            stack.push(4);
+            stack.push_back(42);
 
-            TS_ASSERT(stack.size() == 3);
-            TS_ASSERT(stack.at(2) == 3);            
-            TS_ASSERT(stack.at(3) == 0);            
+            TS_ASSERT_EQUALS(stack.size(),1);
+            TS_ASSERT_EQUALS(stack.at(0),42);
         }
 
-        void testGetTopElement(void){
-            Stack stack = Stack(10);
+        void testPullBack() {
+            Stack stack = Stack();
 
-            TS_ASSERT_EQUALS(stack.isEmpty(), true);
+            stack.push_back(42);
+            int x = stack.pull_back();
 
-            stack.push(1);
-            TS_ASSERT_EQUALS(stack.at(stack.size()-1), 1);
-
-            stack.push(2);
-            TS_ASSERT_EQUALS(stack.at(stack.size()-1), 2);
-
-            stack.push(3);
-            TS_ASSERT_EQUALS(stack.at(stack.size()-1), 3);
-
+            TS_ASSERT_EQUALS(stack.size(),0);
+            TS_ASSERT_EQUALS(stack.at(0),-1);
+            TS_ASSERT_EQUALS(x, 42);
         }
 
-        void testStackPullElement(void) {
-            
-            Stack stack = Stack(10);
+        void testMultiplePushesAndPulls() {
+            Stack stack = Stack();
 
-            stack.push(1);
-            stack.push(1);
-            stack.push(2);
-            stack.push(3);
+            stack.push_back(42);
+            stack.push_back(53);
+            stack.push_back(64);
+            stack.push_back(75);
+            stack.push_back(86);
+            stack.pull_back();
+            stack.pull_back();
+            stack.pull_back();
+            stack.pull_back();
+            stack.push_back(32);
+            stack.pull_back();
+            stack.push_back(21);
+            int x = stack.pull_back();
+            stack.push_back(10);
+            stack.push_back(0);
 
-            int x = stack.pull();
-
-            TS_ASSERT_EQUALS(x, 3);
-            TS_ASSERT_EQUALS(stack.size(), 3);
-            TS_ASSERT_EQUALS(stack.at(stack.size()-1), 2);
-        }
-
-        void testStackUnderflow(void) {
-            
-            Stack stack = Stack(10);
-
-            stack.push(1);
-
-            int x = stack.pull();
-            TS_ASSERT_EQUALS(x, 1);
-            TS_ASSERT_EQUALS(stack.size(), 0);
-
-            x = stack.pull();
-            TS_ASSERT_EQUALS(x,0);
-            TS_ASSERT_EQUALS(stack.size(), 0);
-            
+            TS_ASSERT_EQUALS(stack.size(),3);
+            TS_ASSERT_EQUALS(stack.at(0),42);
+            TS_ASSERT_EQUALS(stack.at(1),10);
+            TS_ASSERT_EQUALS(stack.at(2),0);
+            TS_ASSERT_EQUALS(x,21);
         }
 };
+
+#endif
