@@ -2,7 +2,7 @@
 #define TEST_STACK_H
 
 #include <cxxtest/TestSuite.h>
-#include "stack.h"
+#include "../include/stack.h"
 
 class StackTestSuite : public CxxTest::TestSuite {
     public:

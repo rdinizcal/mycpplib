@@ -2,7 +2,7 @@
 #define TEST_LIST_H
 
 #include <cxxtest/TestSuite.h>
-#include "list.h"
+#include "../include/list.h"
 
 class ListTestSuite : public CxxTest::TestSuite {
 
