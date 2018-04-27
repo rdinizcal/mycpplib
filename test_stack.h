@@ -1,45 +1,45 @@
 #include <cxxtest/TestSuite.h>
-#include "staticstack.h"
+#include "stack.h"
 
-class StaticStackTestSuite : public CxxTest::TestSuite {
+class StackTestSuite : public CxxTest::TestSuite {
     public:
 
         void testDefaultConstructor(void) {
 
-            StaticStack stack = StaticStack();
+            Stack stack = Stack();
 
             TS_ASSERT(&stack != 0);
         }
 
         void testConstructor(void) {
 
-            StaticStack stack = StaticStack(10);
+            Stack stack = Stack(10);
 
             TS_ASSERT(&stack != 0);
         }
 
         void testEmptyStack(void) {
             
-            StaticStack stack = StaticStack(10);
+            Stack stack = Stack(10);
             
             TS_ASSERT(stack.isEmpty() == true);
         }
 
         void testStackSize(void) {
             
-            StaticStack stack10 = StaticStack(10);
+            Stack stack10 = Stack(10);
             TS_ASSERT(stack10.size() == 0);
         }
 
         void testStackCapacity(void) {
 
-            StaticStack stack1  = StaticStack(10);
+            Stack stack1  = Stack(10);
             TS_ASSERT(stack1.getCapacity() == 10);
         }
 
         void testStackPush(void) {
 
-            StaticStack stack = StaticStack();
+            Stack stack = Stack();
 
             stack.push(5);
             TS_ASSERT_EQUALS(stack.size(), 1);
@@ -53,7 +53,7 @@ class StaticStackTestSuite : public CxxTest::TestSuite {
 
         void testStackOverflow(void) {
 
-            StaticStack stack = StaticStack(3);
+            Stack stack = Stack(3);
 
             stack.push(1);
             stack.push(2);
@@ -66,7 +66,7 @@ class StaticStackTestSuite : public CxxTest::TestSuite {
         }
 
         void testGetTopElement(void){
-            StaticStack stack = StaticStack(10);
+            Stack stack = Stack(10);
 
             TS_ASSERT_EQUALS(stack.isEmpty(), true);
 
@@ -83,7 +83,7 @@ class StaticStackTestSuite : public CxxTest::TestSuite {
 
         void testStackPullElement(void) {
             
-            StaticStack stack = StaticStack(10);
+            Stack stack = Stack(10);
 
             stack.push(1);
             stack.push(1);
@@ -99,7 +99,7 @@ class StaticStackTestSuite : public CxxTest::TestSuite {
 
         void testStackUnderflow(void) {
             
-            StaticStack stack = StaticStack(10);
+            Stack stack = Stack(10);
 
             stack.push(1);
 

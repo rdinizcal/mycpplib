@@ -2,17 +2,21 @@ CXX = g++
 CXXTEST = cxxtestgen
 CXXFLAGS = -Wall -Werror
 CXXTESTFLAGS = --error-printer
-OBJS = staticstack.o
+OBJS = stack.o
 
-all: ss test
+all: stack test
 
-ss:
-	$(info Compiling Static Stack ...)
-	$(CXX) $(CXXFLAGS) -c staticstack.cpp -o staticstack.o 
+stack:
+	$(info Compiling stack ...)
+	$(CXX) $(CXXFLAGS) -c stack.cpp -o stack.o 
+
+queue:
+	$(info Compiling queue ...)
+	$(CXX) $(CXXFLAGS) -c stack.cpp -o stack.o
 
 test:
 	$(info Compiling tests...)
-	$(CXXTEST) $(CXXTESTFLAGS) -o runner.cpp test_staticstack.h 
+	$(CXXTEST) $(CXXTESTFLAGS) -o runner.cpp test_stack.h 
 	$(CXX) -std=c++11 -c runner.cpp  -o a.o
 	$(CXX) runner.cpp -o runner.out $(OBJS)
 

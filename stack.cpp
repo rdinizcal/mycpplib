@@ -1,12 +1,12 @@
-#include "staticstack.h"
+#include "stack.h"
 
-StaticStack::StaticStack() {
+Stack::Stack() {
     mSize = 0;
     mCapacity = DEFAULT_CAPACITY;
     mArray = new int [DEFAULT_CAPACITY];
 }
 
-StaticStack::StaticStack(int capacity) {
+Stack::Stack(int capacity) {
     if(capacity <= 0){
         std::cout << "\nError! Could not create static stack with capacity equal or smaller than 0." << std::endl;
         mCapacity = DEFAULT_CAPACITY;
@@ -17,23 +17,23 @@ StaticStack::StaticStack(int capacity) {
     mArray = new int [mCapacity];
 };
 
-StaticStack::~StaticStack() { 
+Stack::~Stack() { 
     delete[] mArray;
 }
 
-bool StaticStack::isEmpty() const  {
+bool Stack::isEmpty() const  {
     return (mSize==0)?true:false; 
 };
 
-int StaticStack::size() const {
+int Stack::size() const {
     return mSize;
 }
 
-int StaticStack::getCapacity() const {
+int Stack::getCapacity() const {
     return mCapacity;
 }
 
-int StaticStack::at(int position) const {
+int Stack::at(int position) const {
     if (position >= 0 && position <= mSize){
         return mArray[position];
     } else {
@@ -41,7 +41,7 @@ int StaticStack::at(int position) const {
     }
 }
 
-void StaticStack::push(int element) {
+void Stack::push(int element) {
     if(mSize>=mCapacity) {
         std::cout << "\nCould not push element into the stack." << std::endl;
     } else {
@@ -50,7 +50,7 @@ void StaticStack::push(int element) {
     }
 }
 
-int StaticStack::pull() {
+int Stack::pull() {
 
     if(mSize > 0) {
         mSize--;

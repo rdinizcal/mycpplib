@@ -5,12 +5,12 @@
 
 const int DEFAULT_CAPACITY = 100;
 
-class StaticStack {
+class Stack {
 
     public:
-        StaticStack();
-        StaticStack(int /*size*/);
-        ~StaticStack();
+        Stack();
+        Stack(int /*size*/);
+        ~Stack();
 
         bool isEmpty() const;
         int size() const;
