@@ -11,7 +11,7 @@ class Stack : public List {
         Stack(int /*capacity*/);
 
         void push_back(int /*new element*/);
-        int pull_back();
+        int pop_back();
 
     private:
         

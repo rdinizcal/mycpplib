@@ -8,7 +8,7 @@ void Stack::push_back(int nel){
     insertAt(mSize, nel);
 }
 
-int Stack::pull_back() {
+int Stack::pop_back() {
     int val = at(mSize-1);
     deleteAt(mSize-1);
 

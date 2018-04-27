@@ -16,11 +16,11 @@ class StackTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS(stack.at(0),42);
         }
 
-        void testPullBack() {
+        void testPopBack() {
             Stack stack = Stack();
 
             stack.push_back(42);
-            int x = stack.pull_back();
+            int x = stack.pop_back();
 
             TS_ASSERT_EQUALS(stack.size(),0);
             TS_ASSERT_EQUALS(stack.at(0),-1);
@@ -35,14 +35,14 @@ class StackTestSuite : public CxxTest::TestSuite {
             stack.push_back(64);
             stack.push_back(75);
             stack.push_back(86);
-            stack.pull_back();
-            stack.pull_back();
-            stack.pull_back();
-            stack.pull_back();
+            stack.pop_back();
+            stack.pop_back();
+            stack.pop_back();
+            stack.pop_back();
             stack.push_back(32);
-            stack.pull_back();
+            stack.pop_back();
             stack.push_back(21);
-            int x = stack.pull_back();
+            int x = stack.pop_back();
             stack.push_back(10);
             stack.push_back(0);
 

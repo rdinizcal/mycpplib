@@ -14,6 +14,7 @@ class List {
         bool isEmpty() const;
         int at(int /*position*/);
 
+    protected:
         void insertAt(int /*position*/, int /*newElement*/);
         void deleteAt(int /*position*/);
         
