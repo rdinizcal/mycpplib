@@ -4,7 +4,6 @@ CXXFLAGS = -Wall -Werror
 CXXTESTFLAGS = --error-printer
 PROGS = list stack 
 OBJS = list.o stack.o
-TSTS = test_list.h test_stack.h
 
 all:
 
@@ -40,9 +39,9 @@ stack-run-tests:
 	$(info Running stack tests...)
 	./runner.out
 
-test-all:
+test-all: list-compile stack-compile
 	$(info Compiling all tests...)
-	$(CXXTEST) $(CXXTESTFLAGS) -o runner.cpp $(TSTS)
+	$(CXXTEST) $(CXXTESTFLAGS) -o runner.cpp test_list.h test_stack.h
 	$(CXX) -std=c++11 -c runner.cpp  -o a.o
 	$(CXX) runner.cpp -o runner.out $(OBJS)
 

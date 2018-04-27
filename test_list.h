@@ -4,7 +4,7 @@
 #include <cxxtest/TestSuite.h>
 #include "list.h"
 
-class StackTestSuite : public CxxTest::TestSuite {
+class ListTestSuite : public CxxTest::TestSuite {
 
     public:
 
