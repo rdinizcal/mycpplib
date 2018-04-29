@@ -10,7 +10,7 @@ void Queue::push_back(int nel){
 
 int Queue::pop_front(){
     int val = at(0);
-    deleteAt(0);
+    removeFrom(0);
 
     return val;
 }

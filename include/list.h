@@ -16,7 +16,7 @@ class List {
 
     protected:
         void insertAt(int /*position*/, int /*newElement*/);
-        void deleteAt(int /*position*/);
+        void removeFrom(int /*position*/);
         
     protected:
         int mSize;

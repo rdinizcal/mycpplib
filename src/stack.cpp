@@ -10,7 +10,7 @@ void Stack::push_back(int nel){
 
 int Stack::pop_back() {
     int val = at(mSize-1);
-    deleteAt(mSize-1);
+    removeFrom(mSize-1);
 
     return val;
 }

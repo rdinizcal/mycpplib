@@ -45,7 +45,7 @@ void List::insertAt(int pos, int nel) {
     }
 }
 
-void List::deleteAt(int pos) {
+void List::removeFrom(int pos) {
     if(isEmpty() || pos >= mSize) return;
 
     int i = pos;
